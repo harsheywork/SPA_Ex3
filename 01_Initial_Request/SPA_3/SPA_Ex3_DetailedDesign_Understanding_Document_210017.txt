@@ -1,0 +1,89 @@
+Understanding Document for Front-End Development
+1. Overview
+    Objective: 
+		Develop the front-end of the Transport Company Translation Table Management Screen as part of a Single Page Application (SPA).
+
+	Key Requirement: 
+		Familiarity with Snackbar for displaying notifications (e.g., success messages, error messages).
+	
+	Scope:
+		Develop the UI for displaying, editing, and deleting transport company translation entries.
+		Implement Snackbar notifications for user feedback (e.g., success messages after updates, error messages for failures)
+	
+2. Detailed Design Analysis
+The detailed design document provides the following key components and interactions:
+    2.1 Transport Company Translation Table Screen:
+			Displays a list of transport company translations (code, short name, full name).
+			Allows users to edit or delete entries via a right-click menu.
+			Includes paging functionality (15 entries per page).
+
+    2.2 Edit Dialog:
+			Allows users to update the transport company name.
+			Includes an Update button (to save changes) and a Cancel button (to close the dialog without saving).
+
+    2.3 Delete Confirmation Dialog:
+			Confirms the deletion of a transport company entry.
+			Includes a Delete button (to confirm deletion) and a Cancel button (to close the dialog without deleting).
+
+    2.4 Snackbar:
+			Displays success or error messages after user actions (e.g., "Updated successfully," "Failed to delete entry").
+
+3. Front-End Development Specifications
+	3.1 Transport Company Translation Table Screen
+		3.1.1 UI Elements:
+				(a) Table:
+					Columns: Transport Company Code, Short Name, Full Name.
+					Rows: Display up to 15 entries per page.
+
+				(b) Right-Click Menu:
+					Options: Edit, Delete.
+
+				(c) Paging Controls:
+					Buttons: Previous, Next, Page Numbers.
+
+		3.1.2 Development:
+				Use a table component from front-end framework.
+				Implement paging logic (fetch data in chunks of 15).
+				Add right-click menu functionality for edit and delete actions.
+
+		3.1.3 Snackbar Integration for notifications:
+				Display a Snackbar notification after successful actions (e.g., "Entry updated successfully").
+				Display error messages in the Snackbar for failed actions (e.g., "Failed to update entry").		
+		
+	3.2 Edit Dialog
+		
+		3.2.1 UI Elements:
+				(a)Text Box:
+					Pre-filled with the transport company name.
+					Max 40 characters.
+				(b)Buttons:
+					Update: Saves changes and closes the dialog.
+					Cancel: Closes the dialog without saving.
+		3.2.2 Development:
+				Create a modal dialog component.
+				Implement input validation (e.g., max 40 characters).
+				Handle API calls for updating data.
+
+		3.2.3 Snackbar Integration:
+				On successful update:
+					Display a Snackbar with the message "Updated successfully."
+				On failure: 
+					Display a Snackbar with the error message (e.g., "Failed to update transport company name").
+		
+	3.3 Delete Confirmation Dialog
+		3.3.1 UI Elements:
+				(a)Confirmation Message:
+					"The data for 'Transport Code: {transport Code}' will be deleted. Are you sure?"
+				(b)Buttons:
+					Delete: Confirms deletion and closes the dialog.
+					Cancel: Closes the dialog without deleting.
+
+		3.3.2 Development:
+				Create a confirmation dialog component.
+				Handle API calls for deleting data.
+
+		3.3.3 Snackbar Integration:
+				On successful deletion: 
+					Display a Snackbar with the message "Deleted successfully."
+				On failure: 
+					Display a Snackbar with the error message (e.g., "Failed to delete entry").

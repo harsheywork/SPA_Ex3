@@ -1,0 +1,204 @@
+{
+	"info": {
+		"_postman_id": "5d37a146-cfc8-4398-b907-049d5a217462",
+		"name": "SPA Transport Translation URLS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39528814"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.clear('accessToken');\r",
+							"pm.collectionVariables.set('accessToken', pm.response.json().accessToken);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"loginAccount\": \"\",\r\n  \"password\": \"501\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://10.17.1.162:5000/api/login",
+					"protocol": "http",
+					"host": [
+						"10",
+						"17",
+						"1",
+						"162"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Transport Translation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://10.17.1.162:5000/api/transport-translations",
+					"protocol": "http",
+					"host": [
+						"10",
+						"17",
+						"1",
+						"162"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"transport-translations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Transport Translation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "If-Match",
+						"value": "1739529289001",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"transportName\": \"DTDC1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://10.17.1.162:5000/api/transport-translations/:transportCode",
+					"protocol": "http",
+					"host": [
+						"10",
+						"17",
+						"1",
+						"162"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"transport-translations",
+						":transportCode"
+					],
+					"variable": [
+						{
+							"key": "transportCode",
+							"value": "60"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Transport Translation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "If-Match",
+						"value": "1739523891504",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://10.17.1.162:5000/api/transport-translations/:transportCode",
+					"protocol": "http",
+					"host": [
+						"10",
+						"17",
+						"1",
+						"162"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"transport-translations",
+						":transportCode"
+					],
+					"variable": [
+						{
+							"key": "transportCode",
+							"value": "JPT"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "accessToken",
+			"value": ""
+		}
+	]
+}

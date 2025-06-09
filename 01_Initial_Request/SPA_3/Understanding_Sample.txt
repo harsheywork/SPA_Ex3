@@ -1,0 +1,67 @@
+
+Overview of Understanding document topics/areas:
+
+
+Editing instructions
+	Form of item display
+		Numerical values are separated by commas, monetary values by a circle, dates by ‘YYYY/MM/DD’, etc.
+	Codes/numbers
+		A system defined by the business or other.
+
+Item specification
+	Specification of the item alone.
+		Number of digits or range
+Item-to-item specification	
+	Specification for multiple items.
+		Greater or lesser relationship between items,
+		Required (dependent), exclusive. The presence or absence or content of one item affects the input of other items.
+	Data consistency/existence specifications
+		Existence or non-existence of a master
+		Consistency with other entities
+
+Status.
+	State of the data
+		Consistency of data lifecycle and functionality
+		For example, approved data is not displayed in the list of approved applications, etc.
+
+
+Operational specifications
+	Specifications prescribed in the course of business.
+	For example,
+		The basic rule is that invoicing shall be at the end of the month of shipment and payment at the end of the following month.
+		If there are special reasons, invoicing at the end of the following month is allowed and payment is made at the end of the following two months.
+		In this case, the reason must be entered. etc.
+
+
+Authority
+	Authorisations according to user attributes (examples below)
+		Person in charge: can view and update their own data.
+		Managers: can view and update their own data and that of their subordinates.
+		Assistant: can view the data of the person in charge
+		
+
+Behaviour
+	Next screen transition
+	Session processing, etc. as required
+
+
+Non-functional requirements
+	Performance aspects need to be considered, as there is only so much that can be done on a stand-alone level.
+	Having said that, tuning of important or heavy functions in subsequent processes is tricky,
+	It is necessary to think carefully about how to proceed in order to set a goal.
+	To avoid damage at the rewrite level, it is better to use code reviews.
+
+
+Exceptions
+	Dealing with logical errors
+		Message output
+		Log output
+		*: Log output is also specified in the architectural design, etc. and applies to anomalies.
+
+
+Anomaly
+	Response to physical errors
+	*: Basically specified in architectural design, etc.
+
+*: Data integrity, status and authorisation are also a point of view when actually conducting integration tests with the relevant functions.
+*: Anomalies are also an item in ST, etc.
